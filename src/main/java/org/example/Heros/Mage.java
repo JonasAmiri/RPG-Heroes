@@ -26,7 +26,7 @@ public class Mage extends Hero {
         this.CalculateTotalAttributes();
     }
 
-    // Equpt a piece of Armor
+    // Equip a piece of Armor
     // Check if Armor is of valid type and the player level is high enough
     // If specified slot is occupied, overwrite the slot
     public void EquipArmor(Item armor){
@@ -47,7 +47,7 @@ public class Mage extends Hero {
 
     }
 
-    // Equpt a new Weapon
+    // Equip a new Weapon
     // Check if Weapon is of valid type and the player level is high enough
     // If Weapon slot is occupied, overwrite the slot
     public void EquipWeapon(Item weapon){

@@ -19,13 +19,19 @@ public class Rogue extends Hero {
 
     }
 
+    // Level up the character
+    // Increase the current Level and add the levelGain to the levelAttributes
+    // Calculate the new total Attributes
+
     public void LevelUp(){
         levelAttributes = levelAttributes.combine(GainOnLevelUp);
         currentLevel ++;
         this.CalculateTotalAttributes();
     }
 
-
+    // Equip a piece of Armor
+    // Check if Armor is of valid type and the player level is high enough
+    // If specified slot is occupied, overwrite the slot
     public void EquipArmor(Item armor){
         try {
             if (!Arrays.asList(ValidArmor).contains(armor.getArmorType())) {
@@ -44,6 +50,9 @@ public class Rogue extends Hero {
 
     }
 
+    // Equip a new Weapon
+    // Check if Weapon is of valid type and the player level is high enough
+    // If Weapon slot is occupied, overwrite the slot
     public void EquipWeapon(Item weapon){
         try {
             if (!Arrays.asList(ValidWeapon).contains(weapon.getWeaponType())) {
@@ -60,6 +69,10 @@ public class Rogue extends Hero {
         }
     }
 
+    // Calculate the Damage with the following function:
+    // WeaponDamage * (1/(Dexterity/100))
+    // If no weapon: WeaponDamage is seen as 1
+
     public double getDamage(){
         double damage;
 
@@ -71,6 +84,8 @@ public class Rogue extends Hero {
 
         return damage;
     }
+
+    // Returns a string containing the current Name, Class, Level, Attributes and Damage of the Hero
 
     public String Display(){
 

@@ -20,6 +20,9 @@ public class Ranger extends Hero {
         this.CalculateTotalAttributes();
     }
 
+    // Equip a piece of Armor
+    // Check if Armor is of valid type and the player level is high enough
+    // If specified slot is occupied, overwrite the slot
 
     public void LevelUp(){
         levelAttributes = levelAttributes.combine(GainOnLevelUp);
@@ -27,6 +30,9 @@ public class Ranger extends Hero {
         this.CalculateTotalAttributes();
     }
 
+    // Equip a piece of Armor
+    // Check if Armor is of valid type and the player level is high enough
+    // If specified slot is occupied, overwrite the slot
     public void EquipArmor(Item armor){
         try {
             if (!Arrays.asList(ValidArmor).contains(armor.getArmorType())) {
@@ -45,6 +51,9 @@ public class Ranger extends Hero {
 
     }
 
+    // Equip a new Weapon
+    // Check if Weapon is of valid type and the player level is high enough
+    // If Weapon slot is occupied, overwrite the slot
     public void EquipWeapon(Item weapon){
         try {
             if (!Arrays.asList(ValidWeapon).contains(weapon.getWeaponType())) {
@@ -63,6 +72,10 @@ public class Ranger extends Hero {
         }
     }
 
+    // Calculate the Damage with the following function:
+    // WeaponDamage * (1/(Dexterity/100))
+    // If no weapon: WeaponDamage is seen as 1
+
     public double getDamage(){
         double damage;
 
@@ -75,6 +88,7 @@ public class Ranger extends Hero {
         return damage;
     }
 
+    // Returns a string containing the current Name, Class, Level, Attributes and Damage of the Hero
     public String Display(){
         
         this.CalculateTotalAttributes();
