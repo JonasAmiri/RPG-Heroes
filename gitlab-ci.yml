@@ -1,0 +1,21 @@
+image: maven:3-jdk-8
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - mvn test
+  artifacts:
+    paths:
+      - test/reports/
+
+junit:
+  stage: test
+  script:
+    - find test/reports/ -name "*.xml" | xargs -I {} junit2yaml -i {} -o junit.yaml
+  artifacts:
+    paths:
+      - junit.yaml
+  needs: ["test"]
